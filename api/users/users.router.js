@@ -7,6 +7,7 @@ const router = express.Router();
 router.post("/", usersController.create);  // Création d'utilisateur
 
 // Routes protégées (avec auth)
+router.get("/:userId/articles", usersController.getUserArticles);
 router.get("/", auth, usersController.getAll);
 router.get("/:id", auth, usersController.getById);
 router.put("/:id", auth, usersController.update);

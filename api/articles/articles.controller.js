@@ -8,7 +8,7 @@ class ArticlesController {
   async create(req, res, next) {
     try {
       // L'utilisateur est récupéré par le middleware auth
-      const userId = req.user.userId;
+      const userId = req.user._id;
       const article = await articlesService.create(req.body, userId);
       
       // Temps réel avec Socket.IO
